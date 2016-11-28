@@ -1,3 +1,4 @@
+import __future__
 import itertools
 import numpy as np
 from scipy import ndimage
@@ -79,7 +80,7 @@ def find_centromeres_candidates(counts, lengths, n_candidate=3,
                   chromosome
     """
     if verbose:
-        print "Searching for centromeres candidates"
+        print("Searching for centromeres candidates")
     # FIXME if there is more than 3 peaks ?
 
     begin, end = 0, 0
@@ -155,12 +156,12 @@ def filter_centromeres_candidates(counts, lengths, candidates, copy=True,
 
     """
     if verbose:
-        print "Filtering centromeres candidates"
+        print("Filtering centromeres candidates")
 
     if copy:
         counts = counts.copy()
     baseline_candidates = [c[0] for c in candidates]
-    mask = iced.utils.get_intra_mask(lengths, resolution=1)
+    mask = iced.utils.get_intra_mask(lengths)
     counts[mask] = 0
     parameters = np.concatenate([baseline_candidates,
                                  [counts.max() - np.median(counts),
@@ -234,19 +235,19 @@ def optimize_centromeres(counts, lengths, candidates, sigma=4, verbose=0,
 
     """
     if verbose:
-        print "Refining centromeres calls."
+        print("Refining centromeres calls.")
 
     if copy:
         counts = counts.copy()
 
-    mask = iced.get_intra_mask(lengths, resolution=1)
+    mask = iced.utils.get_intra_mask(lengths)
     counts[mask] = 0
 
     all_candidates = itertools.product(
         *[candidate for candidate in candidates])
 
     if verbose:
-        print "%d candidates" % np.prod([len(c) for c in candidates])
+        print("%d candidates" % np.prod([len(c) for c in candidates]))
         print
 
     fval_min = None

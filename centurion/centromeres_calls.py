@@ -23,7 +23,7 @@ def centromeres_calls(counts, lengths, resolution=40000, init=None,
             counts, lengths, coefficient=coef)
 
         if normalize:
-            counts_40kb = iced.ICE_normalization(counts_40kb)
+            counts_40kb = iced.normalization.ICE_normalization(counts_40kb)
 
         centromeres_calls_40kb = centromeres_calls_(
             counts_40kb, lengths_40kb, sigma=sigma, verbose=verbose,
@@ -42,9 +42,9 @@ def centromeres_calls(counts, lengths, resolution=40000, init=None,
         candidates = [[i] for i in init]
 
     if normalize:
-        counts = iced.ICE_normalization(counts)
+        counts = iced.normalization.ICE_normalization(counts)
 
-    mask = iced.utils.get_intra_mask(lengths, resolution=1)
+    mask = iced.utils.get_intra_mask(lengths)
     counts[mask] = 0
     if coef != 1:
         centromeres_calls = prelocalization_.optimize_centromeres(
@@ -64,7 +64,7 @@ def centromeres_calls_(counts, lengths, sigma=4, init=None,
     """
     if copy:
         counts = counts.copy()
-    mask = iced.utils.get_intra_mask(lengths, resolution=1)
+    mask = iced.utils.get_intra_mask(lengths)
     counts[mask] = 0
 
     candidate_centromeres = prelocalization_.find_centromeres_candidates(
