@@ -19,8 +19,9 @@ import os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('sphinxext'))
-extensions = ['gen_rst', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary',
-              'sphinx.ext.pngmath', 'numpy_ext.numpydoc']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary',
+              'sphinx.ext.pngmath', 'numpy_ext.numpydoc',
+              'sphinx_gallery.gen_gallery']
 
 autosummary_generate = True
 
@@ -44,6 +45,8 @@ master_doc = 'index'
 # General information about the project.
 project = u'Centurion'
 copyright = u'2014, Nelle Varoquaux'
+
+plot_gallery = True
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -225,7 +228,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pastis', u'pastis Documentation',
+    ('index', 'centurion', u'centurion Documentation',
      [u'Nelle Varoquaux'], 1)
 ]
 
@@ -239,8 +242,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'pastis', u'pastis Documentation',
-   u'Nelle Varoquaux', 'pastis', 'One line description of project.',
+  ('index', 'centurion', u'centurion Documentation',
+   u'Nelle Varoquaux', 'centurion', 'One line description of project.',
    'Miscellaneous'),
 ]
 
