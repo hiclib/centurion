@@ -6,7 +6,7 @@ DISTNAME = 'centurion'
 DESCRIPTION = ''
 MAINTAINER = ''
 MAINTAINER_EMAIL = ''
-VERSION = '0.1.git'
+VERSION = '0.1'
 
 
 def configuration(parent_package='', top_path=None):
