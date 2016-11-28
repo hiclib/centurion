@@ -1,0 +1,4 @@
+*pyc
+*.tar.gz
+build
+doc/auto_examples
