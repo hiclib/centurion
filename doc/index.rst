@@ -32,13 +32,14 @@ Download
 ========
 
 Download Centurion 0.1 `here
-<https://github.com/hiclib/centurion/archive/v0.0.1.tar.gz>`_
+<https://github.com/hiclib/centurion/archive/v0.1.0.tar.gz>`_
 or `fork the code on github <https://github.com/hiclib/centurion/>`_.
 
 References
 ==========
 
-To come
+`Accurate identification of centromere locations in yeast genomes using Hi-C
+<http://nar.oxfordjournals.org/content/early/2015/05/04/nar.gkv424.full>`_
 
 Contacts
 ========
