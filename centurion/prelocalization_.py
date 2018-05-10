@@ -1,4 +1,5 @@
-import __future__
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import itertools
 import numpy as np
 from scipy import ndimage
@@ -151,7 +152,7 @@ def filter_centromeres_candidates(counts, lengths, candidates, copy=True,
 
     Returns
     -------
-    candidates : a list of L list containing the reduced candidate centromeres
+    candidates : a list of L list containing the reduced candidate centromeres
                  for each chromosome.
 
     """
@@ -254,8 +255,8 @@ def optimize_centromeres(counts, lengths, candidates, sigma=4, verbose=0,
     best_results = None
     for i, c in enumerate(all_candidates):
         if verbose:
-            print "Computing %d / %d candidates" % (
-                i + 1, np.prod([len(j) for j in candidates]))
+            print("Computing %d / %d candidates" % (
+                i + 1, np.prod([len(j) for j in candidates])))
         fval, results = refine_centromeres(
             counts, lengths, c,
             sigma=sigma, verbose=verbose)

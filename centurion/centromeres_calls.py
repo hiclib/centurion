@@ -59,7 +59,7 @@ def centromeres_calls(counts, lengths, resolution=40000, init=None,
 
 def centromeres_calls_(counts, lengths, sigma=4, init=None,
                        n_candidate=2, verbose=2, copy=True,
-                       filter_candidates=False, max_trials=30):
+                       filter_candidates=False, max_trials=30, njobs=1):
     """
     """
     if copy:
@@ -77,5 +77,6 @@ def centromeres_calls_(counts, lengths, sigma=4, init=None,
     else:
         refined_candidates = candidate_centromeres
     centromeres_calls = prelocalization_.optimize_centromeres(
-        counts, lengths, refined_candidates, sigma=sigma, verbose=verbose)
+        counts, lengths, refined_candidates, sigma=sigma, njobs=njobs,
+        verbose=verbose)
     return centromeres_calls
